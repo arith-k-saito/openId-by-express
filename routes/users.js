@@ -7,6 +7,8 @@ var OAuth2 = google.auth.OAuth2;
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var query = url.parse(req.url, true).query;
+  console.log(query);
+
   var code = query.code;
 
   var auth = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
