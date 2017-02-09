@@ -5,7 +5,7 @@ config = {
     CLIENT_ID : '',
     CLIENT_SECRET : '',
     REDIRECT_URL: 'http://localhost:5000/users',
-    SCOPE: 'openid',
+    SCOPE: 'openid email',
     RESPONSE_TYPE: 'code'
   },
   FACEBOOK: {

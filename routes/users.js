@@ -7,6 +7,8 @@ var request = require('request');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  var msg = "";
+
   var query = url.parse(req.url, true).query;
   console.log(query);
 
@@ -32,14 +34,19 @@ router.get('/', function(req, res, next) {
         var data = JSON.parse(body);
 
         if ((data.iss != "accounts.google.com") || (data.aud != config.GOOGLE.CLIENT_ID)) {
-          // TODO: 署名がまちがっている
-          console.log("validataion error");
+          msg = "認証失敗";
+        }
+        else {
+          msg = "あなたのアドレスは " + data.email + "です";
         }
       });
-
-      res.send("access tokenは取得出来たけど、APIの叩き方が分からない");
+      
     }
   });
+  
+
+// TODO: msgをrenderに渡せるようにする
+res.render('users', { title: 'Google OpenID Connect', msg: msg });
 });
 
 module.exports = router;
