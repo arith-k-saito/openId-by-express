@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var url = require("url");1
+var url = require("url");
 var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 
@@ -10,8 +10,11 @@ router.get('/', function(req, res, next) {
   console.log(query);
 
   var code = query.code;
+  var state = query.state;
+  
+  // TODO: stateの検証をするべき
 
-  var auth = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+  var auth = new OAuth2(config.GOOGLE.CLIENT_ID, config.GOOGLE.CLIENT_SECRET, config.GOOGLE.REDIRECT_URL);
   auth.getToken(code, function(err, tokens) {
     if(!err) {
       console.log(tokens);
