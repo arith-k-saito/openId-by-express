@@ -1,7 +1,7 @@
 ## command
 
-npm install
-cp config.sample.js config.js
+npm install  
+cp config.sample.js config.js  
 node bin/www
 
 ## URL
