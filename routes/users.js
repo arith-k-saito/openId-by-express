@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   console.log(query);
 
   var code = query.code;
-  var code = query.state;
+  var state = query.state;
   
   // TODO: stateの検証をするべき
 
