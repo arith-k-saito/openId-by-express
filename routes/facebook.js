@@ -1,10 +1,7 @@
-'use strict';
-
-const express = require('express');
-const crypto = require('crypto');
-const passport = require('passport');
-
-let router = express.Router();
+var express = require('express');
+var crypto = require('crypto');
+var passport = require('passport');
+var router = express.Router();
 
 router.get('/', (req, res, next) => {
   if (!req.session.state) {
